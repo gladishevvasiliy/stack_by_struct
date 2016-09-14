@@ -1,5 +1,3 @@
-// stack.cpp: определяет точку входа для консольного приложения.
-//
 
 #include "stdafx.h"
 
@@ -12,7 +10,7 @@ struct elem {
 
 void push(int num, elem **top);
 int pop(elem**);
-void output(elem*);
+void output(elem**);
 
 void push(int num, elem **top) {
 	elem *curr = new elem;
@@ -38,6 +36,11 @@ int pop(elem **top) {
 	}
 }//end pop
 
+void output(elem** top) {
+	while ((*top)->num != NULL) {
+		printf_s("%s", (*top)->num);
+	}
+}
 
 
 
