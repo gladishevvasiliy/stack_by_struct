@@ -17,21 +17,24 @@ void output(elem*);
 int main() {
 	elem *top(NULL);
 	for (int i = 0; i < 10; i++) {
+		cout << i << " ";
 		push(i, &top);//&top - adress of the pointer top
 	}
-
-	output(top);
 	cout << endl;
 	int tmp = 0;
 	for (int i = 0; i < 11; i++) {
 		tmp = pop(&top);
-	}
-	if (tmp == -1) 
-	{
+		
+		if (tmp == -1)
+		{
 			cout << "stack is empty" << endl;
-	}	
-	
-	output(top);
+		}
+		else
+		{
+			cout << tmp << " ";
+		}
+	}
+	cout << endl;
 	_gettch();
 	return 0;
 }
@@ -62,12 +65,12 @@ int pop(elem **top) {
 }//end pop
 
 
-void output(elem *top) {
-	while (top != NULL){
-		cout << top->num << endl;
-		top = top->prev;
-	}
-}
+//void output(elem *top) {
+//	while (top != NULL){
+//		cout << top->num << endl;
+//		top = top->prev;
+//	}
+//}
 
 
 
