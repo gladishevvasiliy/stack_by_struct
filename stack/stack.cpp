@@ -1,6 +1,7 @@
 
 #include "stdafx.h"
 #include <iostream>		
+#include <string> 
 using namespace std;
 
 //define stack element
@@ -15,12 +16,21 @@ void output(elem*);
 
 int main() {
 	elem *top(NULL);
-	for (int i = 0; i < 10; i++) 
+	for (int i = 0; i < 10; i++) {
 		push(i, &top);//&top - adress of the pointer top
+	}
+
 	output(top);
 	cout << endl;
-	for (int i = 0; i < 10; i++)
-		pop(&top);
+	int tmp = 0;
+	for (int i = 0; i < 11; i++) {
+		tmp = pop(&top);
+	}
+	if (tmp == -1) 
+	{
+			cout << "stack is empty" << endl;
+	}	
+	
 	output(top);
 	_gettch();
 	return 0;
@@ -40,12 +50,11 @@ void push(int num, elem **top) {
 }//end push
 
 int pop(elem **top) {
+	if (*top == NULL) {
+		return -1;
+	}
 	// int tmp = (**top).num;
 	int tmp = (*top)->num;
-	if (*top == NULL) {
-		string msg = "stack is empty";
-		return msg;
-	}
 	elem *tmp_top = *top;
 	*top = (**top).prev;
 	delete tmp_top;
