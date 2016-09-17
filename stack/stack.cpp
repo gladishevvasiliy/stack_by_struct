@@ -10,7 +10,17 @@ struct elem {
 
 void push(int num, elem **top);
 int pop(elem**);
-void output(elem**);
+void output(elem*); //
+
+int main() {
+	elem *top(NULL);
+	for (int i = 0; i < 10; i++) 
+		push(i, &top);//&top - adress of the pointer top
+	output(top);
+	int stop = NULL;
+	scanf_s("%i", stop);
+	return 0;
+}
 
 void push(int num, elem **top) {
 	elem *curr = new elem;
@@ -21,8 +31,8 @@ void push(int num, elem **top) {
 	}
 	else {
 		curr->prev = *top;
-		*top = curr;
 	}
+	*top = curr;
 }//end push
 
 int pop(elem **top) {
@@ -36,9 +46,10 @@ int pop(elem **top) {
 	}
 }//end pop
 
-void output(elem** top) {
-	while ((*top)->num != NULL) {
-		printf_s("%s", (*top)->num);
+void output(elem *top) {
+	while (top != NULL){
+		printf_s("%s", top->num);
+		top = top->prev;
 	}
 }
 
