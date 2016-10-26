@@ -1,10 +1,15 @@
-
 #include "stdafx.h"
 #include <iostream>		
 #include "stack.h"	
 
+Stack::Stack()
+{}
 
-void push(int num, elem **top) {
+Stack::~Stack()
+{}
+
+
+void Stack::push(int num, elem **top) {
 	elem *curr = new elem;
 	//(*curr).num = num ;
 	curr->num = num;
@@ -17,7 +22,7 @@ void push(int num, elem **top) {
 	*top = curr;
 }//end push
 
-int pop(elem **top) {
+int Stack::pop(elem **top) {
 	if (*top == NULL) {
 		return -1;
 	}
@@ -30,13 +35,16 @@ int pop(elem **top) {
 }//end pop
 
 
-//void output(elem *top) {
-//	while (top != NULL){
-//		cout << top->num << endl;
-//		top = top->prev;
-//	}
-//}
+void Stack::output(elem *top) {
+	while (top != NULL){
+		cout << top->num << endl;
+		top = top->prev;
+	}
+}//end output
 
+void Stack::init() {
+	elem *top(NULL);
+}
 
 
 

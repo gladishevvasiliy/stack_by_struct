@@ -3,16 +3,18 @@
 #include "stack.h"	
 using namespace std;
 
+Stack stack;
+
 int main() {
 	elem *top(NULL);
 	for (int i = 0; i < 10; i++) {
 		cout << i << " ";
-		push(i, &top);//&top - adress of the pointer top
+		stack.push(i, &top);//&top - adress of the pointer top
 	}
 	cout << endl;
 	int tmp = 0;
 	for (int i = 0; i < 11; i++) {
-		tmp = pop(&top);
+		tmp = stack.pop(&top);
 
 		if (tmp == -1)
 		{
