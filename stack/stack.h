@@ -5,18 +5,18 @@
 
 using namespace std;
 
+struct elem {
+	int num;
+	elem *prev;
+};
 class Stack
 {
 private:
 	//define stack element
-	struct elem {
-		int num;
-		elem *prev;
-	};
+	
 public:
 	Stack();
 	~Stack();
-
 
 	void push(int  num, elem **top);
 	int pop(elem**);
